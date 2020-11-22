@@ -30,7 +30,7 @@ def record_view(home_id):
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM homes WHERE id=%s', home_id)
     result = cursor.fetchall()
-    return render_template('view.html', title='View Form', homes=result[0])
+    return render_template('view.html', title='View Form', homes=result)
 
 
 @app.route('/edit/<int:home_id>', methods=['GET'])
@@ -38,7 +38,7 @@ def form_edit_get(home_id):
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM homes WHERE id=%s', home_id)
     result = cursor.fetchall()
-    return render_template('edit.html', title='Edit Form', homes=result[0])
+    return render_template('edit.html', title='Edit Form', homes=result)
 
 
 @app.route('/edit/<int:home_id>', methods=['POST'])
