@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS homes (
     `Age` INT,
     `Acres` NUMERIC(3, 2),
     `Taxes` INT,
-    'id' INT primary key
+    `id` INT
 );
 INSERT INTO homes VALUES
     ('142', 160, 28, 10, 5, 3,  60, 0.28,  3167, 1),
