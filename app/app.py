@@ -7,18 +7,18 @@ from flask import render_template
 app = Flask(__name__)
 
 
-def cities_import() -> List[Dict]:
+def homeValue_import() -> List[Dict]:
     config = {
         'user': 'root',
         'password': 'root',
         'host': 'db',
         'port': '3306',
-        'database': 'citiesData'
+        'database': 'homeValues'
     }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor(dictionary=True)
 
-    cursor.execute('SELECT * FROM tblCitiesImport')
+    cursor.execute('SELECT * FROM homes')
     result = cursor.fetchall()
 
     cursor.close()
@@ -30,14 +30,14 @@ def cities_import() -> List[Dict]:
 @app.route('/')
 def index():
     user = {'username': 'Ricardo'}
-    cities_data = cities_import()
+    homes_data = homeValue_import()
 
-    return render_template('index.html', title='Home', user=user, cities=cities_data)
+    return render_template('index.html', title='Home', user=user, homes=homes_data)
 
 
-@app.route('/api/cities')
+@app.route('/api/homes')
 def cities() -> str:
-    js = json.dumps(cities_import())
+    js = json.dumps(homeValue_import())
     resp = Response(js, status=200, mimetype='application/json')
     return resp
 
