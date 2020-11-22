@@ -1,23 +1,29 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div class="card" class="m-5 p-2">
-    <h5 class="card-title">Sell Price: ${{ home.Sell }}k - List Price: ${{ home.List }}k</h5>
+{% for home in homes %}
+
+<div class="card" class="t-3 m-5 p-2">
+    <h5 class="card-title"><strong>Sell Price: </strong>${{ home.Sell }}k - <strong>List Price: </strong>${{ home.List }}k</h5>
 
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Living Room Space: {{ home.Living }}</li>
-        <li class="list-group-item">Rooms: {{ home.Rooms }}</li>
-        <li class="list-group-item">Bedrooms: {{ home.Beds }}</li>
-        <li class="list-group-item">Bathrooms: {{ home.Baths }}</li>
-        <li class="list-group-item">Age of Home: {{ home.Age }}</li>
-        <li class="list-group-item">Property Acres: {{ home.Acres }}</li>
-        <li class="list-group-item">Property Taxes: {{ home.Taxes }}</li>
+        <li class="list-group-item"><strong>Living Room (sqft): </strong>{{ home.Living }}</li>
+        <li class="list-group-item"><strong>Rooms: </strong>{{ home.Rooms }}</li>
+        <li class="list-group-item"><strong>Bedrooms: </strong>{{ home.Beds }}</li>
+        <li class="list-group-item"><strong>Bathrooms: </strong>{{ home.Baths }}</li>
+        <li class="list-group-item"><strong>Age of Home: </strong>{{ home.Age }}</li>
+        <li class="list-group-item"><strong>Property Acres: </strong>{{ home.Acres }}</li>
+        <li class="list-group-item"><strong>Property Taxes: </strong>{{ home.Taxes }}</li>
     </ul>
     <div class="card-body">
         <a href="/edit/{{home.id}}" class="card-link btn btn-primary">Edit</a>
     </div>
+
 </div>
+
+
 <form action="/delete/{{home.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
 
+{% endfor %}
 
 {% endblock %}

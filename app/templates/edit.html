@@ -1,5 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
+
+{% for home in homes %}
+
 <form action="/edit/{{home.id}}" method="post">
     <div class="row">
         <div class="col">
@@ -8,8 +11,7 @@
         </div>
         <div class="col">
             <label for="List">List Price</label>
-            <input id="List" type="text" class="form-control" placeholder="List Price"
-                   name="List" value="{{home.List}}">
+            <input id="List" type="text" class="form-control" placeholder="List Price" name="List" value="{{home.List}}">
         </div>
         <div class="col">
             <label for="Living">Living Space</label>
@@ -48,4 +50,7 @@
     <button type="submit" class="btn btn-success">Save</button>
 
 </form>
+
+{% endfor %}
+
 {% endblock %}
