@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/edit/{{home.id}}" method="post">
+    <div class="row">
+        <div class="col">
+            <label for="Sell">Sell Price</label>
+            <input id="Sell" type="text" class="form-control" placeholder="Sell Price" name="Sell" value="{{home.Sell}}">
+        </div>
+        <div class="col">
+            <label for="List">List Price</label>
+            <input id="List" type="text" class="form-control" placeholder="List Price"
+                   name="List" value="{{home.List}}">
+        </div>
+        <div class="col">
+            <label for="Living">Living Space</label>
+            <input id="Living" type="text" class="form-control" placeholder="Living Space" name="Living" value="{{home.Living}}">
+        </div>
+        <div class="col">
+            <label for="Rooms">Rooms Space</label>
+            <input id="Rooms" type="text" class="form-control" placeholder="Room Space" name="Rooms" value="{{home.Rooms}}">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label for="Beds">Bedrooms</label>
+            <input id="Beds" type="text" class="form-control" placeholder="Bedrooms" name="Beds" value="{{home.Beds}}">
+        </div>
+        <div class="col">
+            <label for="Baths">Bathrooms</label>
+            <input id="Baths" type="text" class="form-control" placeholder="Bathrooms" name="Baths" value="{{home.Baths}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="Age">Home Age</label>
+            <input id="Age" type="text" class="form-control" placeholder="Home Age" name="Age" value="{{home.Age}}">
+        </div>
+        <div class="col">
+            <label for="Acres">Property Acres</label>
+            <input id="Acres" type="text" class="form-control" placeholder="Property Acres" name="Acres" value="{{home.Acres}}">
+        </div>
+        <div class="col">
+            <label for="Taxes">Property Taxes</label>
+            <input id="Taxes" type="text" class="form-control" placeholder="Property Taxes" name="Taxes" value="{{home.Taxes}}">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+
+</form>
+{% endblock %}
