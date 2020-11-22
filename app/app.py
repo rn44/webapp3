@@ -103,6 +103,14 @@ def api_retrieve(home_id) -> str:
 
 @app.route('/api/v1/homes/', methods=['POST'])
 def api_add() -> str:
+    cursor = mysql.get_db().cursor()
+    content = request.json
+    inputdata = (content['Sell'], content['List'], content['Living'], content['Rooms'], content['Beds'],
+                 content['Baths'], content['Age'], content['Acres'], content['Taxes'])
+    sql_insert_query = """INSERT INTO homes (Sell,List,Living,Rooms,Beds,Baths,Age,Acres,Taxes) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) """
+    cursor.execute(sql_insert_query, inputdata)
+    mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
     return resp
 
