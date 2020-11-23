@@ -101,7 +101,7 @@ def api_retrieve(home_id) -> str:
     return resp
 
 
-@app.route('/api/v1/homes/', methods=['POST'])
+@app.route('/api/v1/homes', methods=['POST'])
 def api_add() -> str:
     cursor = mysql.get_db().cursor()
     content = request.json
