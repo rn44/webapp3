@@ -21,7 +21,26 @@
 
 
 ##Part 4
+### A) All Data in Postman
+![apiBrowse](./screenshots/apiBrowseAll.png)
 
+### B) Single Record in Postman
+![viewSingle](./screenshots/apiBrowseOne.png)
+
+### C) New Record Added
+![newRecord](./screenshots/apiNewPost.png)
+### New Record Verified
+![newVerified](./screenshots/apiNewVerify.png)
+
+### D) Edit Record 
+![editRecord](./screenshots/apiEditPut.png)
+### Edit Record Verified
+![editVerified](./screenshots/apiEditVerify.png)
+
+### E) Delete Record 
+![deleteRecord](./screenshots/apiDelete.png)
+### Delete Record Verified
+![deleteVerified](./screenshots/apiDeleteVerify.png)
 
 
 
