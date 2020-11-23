@@ -48,7 +48,7 @@ def form_update_post(home_id):
                  request.form.get('Rooms'), request.form.get('Beds'), request.form.get('Baths'),
                  request.form.get('Age'), request.form.get('Acres'), request.form.get('Taxes'), home_id)
     sql_update_query = """UPDATE homes t SET t.Sell = %s, t.List = %s, t.Living = %s, t.Rooms = %s, t.Beds = %s, 
-    t.Age = %s, t.Acres = %s, t.Taxes = %s WHERE t.id = %s """
+                 t.Baths = %s,  t.Age = %s, t.Acres = %s, t.Taxes = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputdata)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -66,7 +66,7 @@ def form_insert_post():
                  request.form.get('Rooms'), request.form.get('Beds'), request.form.get('Baths'),
                  request.form.get('Age'), request.form.get('Acres'), request.form.get('Taxes'))
     sql_insert_query = """INSERT INTO homes (Sell,List,Living,Rooms,Beds,Baths,Age,Acres,Taxes) 
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) """
+                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) """
     cursor.execute(sql_insert_query, inputdata)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -108,7 +108,7 @@ def api_add() -> str:
     inputdata = (content['Sell'], content['List'], content['Living'], content['Rooms'], content['Beds'],
                  content['Baths'], content['Age'], content['Acres'], content['Taxes'])
     sql_insert_query = """INSERT INTO homes (Sell,List,Living,Rooms,Beds,Baths,Age,Acres,Taxes) 
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) """
+                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) """
     cursor.execute(sql_insert_query, inputdata)
     mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
@@ -122,7 +122,7 @@ def api_edit(home_id) -> str:
     inputdata = (content['Sell'], content['List'], content['Living'], content['Rooms'], content['Beds'],
                  content['Baths'], content['Age'], content['Acres'], content['Taxes'], home_id)
     sql_update_query = """UPDATE homes t SET t.Sell = %s, t.List = %s, t.Living = %s, t.Rooms = %s, t.Beds = %s, 
-        t.Age = %s, t.Acres = %s, t.Taxes = %s WHERE t.id = %s """
+                 t.Baths = %s, t.Age = %s, t.Acres = %s, t.Taxes = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputdata)
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')

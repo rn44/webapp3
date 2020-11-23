@@ -13,11 +13,15 @@
 ### D) New Records Added
 ![newRecord](./screenshots/webAppNewRows.png)
 
-### E) Updated Records
-![editRecord](./screenshots/webAppEdited.png)
+### E) Edit Form
+![editRecord](./screenshots/webAppEditForm.png)
+### Updated Record
+![editRecordVerified](./screenshots/webAppEdited.png)
 
-### F) Deleted Records (Sell Price 247 was deleted)
-![mySQLData](./screenshots/webAppDeleteRow.png)
+### F) Deleted Record
+![deleteRcord](./screenshots/webAppDeleteRow.png)
+### Deleted Record Verification
+![deleteRecordVerified](./screenshots/webAppDeleteVerified.png)
 
 
 ## Part 4
